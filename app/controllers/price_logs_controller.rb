@@ -1,6 +1,7 @@
 class PriceLogsController < ApplicationController
 
   def new
+    @page_title = "新的產品購買記錄"
     @product_info = ProductInfo.find( params[:format] )
     @price_log = PriceLog.new
   end

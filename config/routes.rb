@@ -1,9 +1,14 @@
 Catfood::Application.routes.draw do
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :price_logs
   resources :categories
   resources :product_infos
+
+  namespace :admin do
+    resources :product_infos
+  end
 
   root 'application#index'
 
