@@ -1,7 +1,10 @@
 Catfood::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
+  resources :price_logs
+  resources :categories
+  resources :product_infos
+
   root 'application#index'
 
   # You can have the root of your site routed with "root"

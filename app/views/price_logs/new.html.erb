@@ -1,0 +1,23 @@
+
+<h1><%= @product_info.vendor %></h1>
+<h2><%= @product_info.name %></h2>
+<%= form_for @price_log, :url => price_logs_path(@product_info) do |f| %>
+    <%= f.label :price, "Price" %>
+    <%= f.text_field :price %>
+    <br>
+
+    <%= f.label :log_date, "Log_Date" %>
+    <%= f.datetime_select :log_date, :ampm => true, :minute_step => 15 %>
+    <br>
+    <%= f.label :location, "Location" %>
+    <%= f.text_field :location %>
+    <br>
+    <%= f.label :capacity, "Capaticy" %>
+    <%= f.text_field :capacity %>
+    <br>
+    <%= f.label :cap_unit, "Capaticy Unit" %>
+    <%= f.text_field :cap_unit %>
+    <br>
+    <%= f.submit "Create" %>
+    <br>
+<% end %>

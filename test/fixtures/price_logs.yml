@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  price: 1
+  log_date: 2013-09-21
+  location: MyText
+  capacity: 1.5
+  cap_unit: MyString
+  product_info_id: 1
+
+two:
+  price: 1
+  log_date: 2013-09-21
+  location: MyText
+  capacity: 1.5
+  cap_unit: MyString
+  product_info_id: 1

@@ -1,0 +1,26 @@
+
+<ul>
+<% @product_infos.each do |info| %>
+  <li>
+    <%= info.id %>
+    <%= info.vendor %>
+    <%= info.name %>
+    <br>
+    類別:<%= info.category.try(:name) %>
+    <br>
+    <%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+    價格記錄: <%= link_to 'add log', new_price_log_path(info) %> <br>
+    <% info.price_logs.each do |log| %>
+      <%= log.price %>
+      <%= log.location %>
+      <%= log.capacity %>
+      <%= log.cap_unit %>
+      <%= log.log_date %>
+      <br>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to 'new product info', new_product_info_path %>

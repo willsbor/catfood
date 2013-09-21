@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vendor: MyString
+  name: MyText
+  category_id: 1
+
+two:
+  vendor: MyString
+  name: MyText
+  category_id: 1

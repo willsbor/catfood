@@ -1,0 +1,15 @@
+<%= form_for @product_info, :url => product_infos_path do |f| %>
+    <%= f.label :vendor, "廠商" %>
+    <%= f.text_field :vendor %>
+    <br>
+
+    <%= f.label :name, "產品名稱" %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.select :category_id, category_options %>
+    <br>
+
+    <%= f.submit "Create" %>
+    <br>
+<% end %>

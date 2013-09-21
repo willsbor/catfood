@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Category.create!(:name => "罐頭")
+Category.create!(:name => "乾飼料")
+Category.create!(:name => "化毛膏")
+Category.create!(:name => "貓砂")
