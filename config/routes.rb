@@ -14,7 +14,7 @@ Catfood::Application.routes.draw do
     resources :price_logs
   end
 
-  root 'application#index'
+  root 'price_logs#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
