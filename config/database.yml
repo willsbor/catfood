@@ -51,7 +51,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: catfood_production
+  database: d2c2a3mve5h2hc
   pool: 5
-  username: catfood
+  username: kjfkfeuqecjtlt
   password:
