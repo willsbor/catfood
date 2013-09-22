@@ -10,6 +10,10 @@ Catfood::Application.routes.draw do
     resources :product_infos
   end
 
+  namespace :users do
+    resources :price_logs
+  end
+
   root 'application#index'
 
   # You can have the root of your site routed with "root"

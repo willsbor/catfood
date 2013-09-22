@@ -1,7 +1,9 @@
 
-<h1><%= @product_info.vendor %></h1>
-<h2><%= @product_info.name %></h2>
-<%= form_for @price_log, :url => price_logs_path(@product_info) do |f| %>
+
+<%= form_for @price_log, :url => users_price_logs_path do |f| %>
+    <%= f.select :product_info_id, product_info_options %>
+    <br>
+
     <%= f.label :price, "Price" %>
     <%= f.text_field :price %>
     <br>

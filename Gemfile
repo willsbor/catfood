@@ -50,6 +50,11 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# heroku 要的
 gem 'rails_12factor', group: :production
 
+# 使用者認證
 gem 'devise'
+
+# 分頁
+gem "kaminari"

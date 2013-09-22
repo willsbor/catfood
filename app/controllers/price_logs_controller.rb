@@ -1,26 +1,7 @@
 class PriceLogsController < ApplicationController
 
-  def new
-    @page_title = "新的產品購買記錄"
-    @product_info = ProductInfo.find( params[:format] )
-    @price_log = PriceLog.new
-  end
-
-  def create
-    @product_info = ProductInfo.find( params[:format] )
-    @price_log = PriceLog.new(price_logs_params)
-    if @price_log.save
-      flash[:notice] = "Successfully created..."
-
-      @product_info.price_logs << @price_log
-      redirect_to product_infos_path
-    else
-      render :action => :new
-    end
-  end
-
-  def price_logs_params
-    params.require(:price_log).permit(:price, :log_date, :location, :capacity, :cap_unit)
+  def index
+    @price_logs = PriceLog.page(params[:page]).per(5)
   end
 
 end

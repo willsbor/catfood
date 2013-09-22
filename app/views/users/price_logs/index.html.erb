@@ -1,0 +1,33 @@
+
+<% if current_user %>
+       <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
+     <%= link_to('修改密碼', edit_registration_path(:user)) %>
+   <% else %>
+      <%= link_to('註冊', new_registration_path(:user)) %> |
+        <%= link_to('登入', new_session_path(:user)) %>
+   <% end %>
+
+<ul>
+<% @price_logs.each do |log| %>
+  <li>
+    <%= log.price %>
+    <%= log.location %>
+    <%= log.capacity %>
+    <%= log.cap_unit %>
+    <%= log.log_date %>
+    <br>
+
+    <%= log.product_info.vendor %>
+    <%= log.product_info.name %>
+    <br>
+    類別:<%= log.product_info.category.try(:name) %>
+    <br>
+
+  </li>
+<% end %>
+</ul>
+
+<%= paginate @price_logs %>
+
+<%= link_to '新增記錄', new_users_price_log_path %> <br> 
+

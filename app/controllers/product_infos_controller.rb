@@ -1,5 +1,4 @@
 class ProductInfosController < ApplicationController
-  before_filter :authenticate_user!
   before_filter :find_product_info, :only => [:destroy]
 
   def index

@@ -1,0 +1,22 @@
+
+<ul>
+<% @price_logs.each do |log| %>
+  <li>
+    <%= log.price %>
+    <%= log.location %>
+    <%= log.capacity %>
+    <%= log.cap_unit %>
+    <%= log.log_date %>
+    <br>
+
+    <%= log.product_info.vendor %>
+    <%= log.product_info.name %>
+    <br>
+    類別:<%= log.product_info.category.try(:name) %>
+    <br>
+
+  </li>
+<% end %>
+</ul>
+
+<%= paginate @price_logs %>
