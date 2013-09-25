@@ -5,6 +5,14 @@ class Users::PriceLogsController < ApplicationController
     @price_logs = current_user.price_logs.page(params[:page]).per(5)
   end
 
+  def show
+    @price_log = PriceLog.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @page_title = "新的產品購買記錄"
     @price_log = PriceLog.new
@@ -23,6 +31,7 @@ class Users::PriceLogsController < ApplicationController
     end
   end
 
+protected
   def price_logs_params
     params.require(:price_log).permit(:price, :log_date, :location, :capacity, :cap_unit, :product_info_id)
   end

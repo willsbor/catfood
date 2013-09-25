@@ -1,25 +1,30 @@
 
-
 <%= form_for @price_log, :url => users_price_logs_path do |f| %>
-    <%= f.select :product_info_id, product_info_options %>
+    <%= f.select :product_info_id, product_info_options, {:prompt => 'select Item'}, {:id => "product_info_select"} %>
     <br>
+    <div id="price_product_info" style="display:none;">
+        <%= f.label :price, "Price" %>
+        <%= f.text_field :price, :id => "price_text" %>
+        <br>
 
-    <%= f.label :price, "Price" %>
-    <%= f.text_field :price %>
-    <br>
+        <%= f.label :log_date, "Log_Date" %>
+        <%= f.date_select :log_date, {selected: Date.today} %>
+        <br>
+        <%= f.label :location, "Location" %>
+        <%= f.text_field :location %>
+        <br>
+        <%= f.label :capacity, "Capaticy" %>
+        <%= f.text_field :capacity %>
+        <br>
+        <%= f.label :cap_unit, "Capaticy Unit" %>
+        <%= f.text_field :cap_unit %>
+        <br>
+        <%= f.submit "Create" %>
+        <br>
+    </div>
 
-    <%= f.label :log_date, "Log_Date" %>
-    <%= f.datetime_select :log_date, :ampm => true, :minute_step => 15 %>
-    <br>
-    <%= f.label :location, "Location" %>
-    <%= f.text_field :location %>
-    <br>
-    <%= f.label :capacity, "Capaticy" %>
-    <%= f.text_field :capacity %>
-    <br>
-    <%= f.label :cap_unit, "Capaticy Unit" %>
-    <%= f.text_field :cap_unit %>
-    <br>
-    <%= f.submit "Create" %>
-    <br>
 <% end %>
+
+
+
+
