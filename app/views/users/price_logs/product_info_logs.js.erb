@@ -1,0 +1,10 @@
+
+$('#price_log_cap_unit').val('test');
+
+$('#price_log_info_content').css({ display: ''});
+
+$("#price_log_price option").remove();
+
+<% @price_logs_for_product_info.each do |log| %>
+  $("#price_log_price").append($("<option></option>").attr("value", '<%= log.price %>').text('<%= log.price %>'));
+<% end %>
