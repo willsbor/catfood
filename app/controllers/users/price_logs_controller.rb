@@ -5,8 +5,8 @@ class Users::PriceLogsController < ApplicationController
     @price_logs = current_user.price_logs.page(params[:page]).per(5)
   end
 
-  def show
-    @price_log = PriceLog.find(params[:id])
+  def product_info_logs
+    @price_logs_for_product_info = PriceLog.joins(:product_info).where(:user_id => current_user.id, :product_info_id => params[:id])
 
     respond_to do |format|
       format.js

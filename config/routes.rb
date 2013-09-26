@@ -6,12 +6,21 @@ Catfood::Application.routes.draw do
   resources :categories
   resources :product_infos
 
+
   namespace :admin do
     resources :product_infos
   end
 
   namespace :users do
-    resources :price_logs
+    resources :price_logs 
+  end
+
+  namespace :users do
+    resources :price_logs do
+      member do
+        get :product_info_logs
+      end
+    end
   end
 
   root 'price_logs#index'

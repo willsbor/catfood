@@ -1,14 +1,15 @@
 
 <%= form_for @price_log, :url => users_price_logs_path do |f| %>
-    <%= f.select :product_info_id, product_info_options, {:prompt => 'select Item'}, {:id => "product_info_select"} %>
+    <%= f.select :product_info_id, product_info_options, {:prompt => 'select Item'}%>
     <br>
-    <div id="price_product_info" style="display:none;">
-        <%= f.label :price, "Price" %>
-        <%= f.text_field :price, :id => "price_text" %>
-        <br>
-
+    <div id="price_log_info_content">
         <%= f.label :log_date, "Log_Date" %>
         <%= f.date_select :log_date, {selected: Date.today} %>
+        <br>
+
+        <%= f.label :price, "Price" %>
+        <%= f.select :price, [] %>
+        <%#= f.text_field :price %>
         <br>
         <%= f.label :location, "Location" %>
         <%= f.text_field :location %>
@@ -22,7 +23,6 @@
         <%= f.submit "Create" %>
         <br>
     </div>
-
 <% end %>
 
 

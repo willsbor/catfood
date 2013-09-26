@@ -2,15 +2,22 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 # <%= price_logs_path %>
+#        success: (data) -> $('#content').html(data)
 
-selectProductPath = "1.js"
+
 
 $(document).ready ->
-  $("#product_info_select").change ->
-    $.ajax selectProductPath,
+  $('#price_log_product_info_id').change ->
+    # get select value
+    index = $('#price_log_product_info_id').val()
+    selectProductPath = index + "/product_info_logs.js"
+
+    if index isnt ''
+      $.ajax selectProductPath,
         type: 'GET'
         dataType: 'script'
-#        success: (data) -> $("#content").html(data)
+    else 
+      $('#price_log_info_content').css({ display: 'none' })
 
    
 
