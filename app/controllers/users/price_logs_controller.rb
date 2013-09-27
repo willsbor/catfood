@@ -7,7 +7,9 @@ class Users::PriceLogsController < ApplicationController
 
   def product_info_logs
     @price_logs_for_product_info = PriceLog.joins(:product_info).where(:user_id => current_user.id, :product_info_id => params[:id])
-
+    product_info = ProductInfo.find(params[:id])
+    @locations_for_product_info = product_info.locations
+    @capacities_for_product_info = product_info.capacities
     respond_to do |format|
       format.js
     end
@@ -20,6 +22,7 @@ class Users::PriceLogsController < ApplicationController
 
   def create
     #@product_info = ProductInfo.find( params[:format] )
+    #@location = Location.find(params[:location])
     @price_log = PriceLog.new(price_logs_params)
     if @price_log.save
       flash[:notice] = "Successfully created..."
@@ -33,6 +36,6 @@ class Users::PriceLogsController < ApplicationController
 
 protected
   def price_logs_params
-    params.require(:price_log).permit(:price, :log_date, :location, :capacity, :cap_unit, :product_info_id)
+    params.require(:price_log).permit(:price, :log_date, :capacity, :cap_unit, :product_info_id, :location_id)
   end
 end

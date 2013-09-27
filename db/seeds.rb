@@ -11,16 +11,96 @@ category2 = Category.create!(:name => "乾飼料")
 category3 = Category.create!(:name => "化毛膏")
 category4 = Category.create!(:name => "貓砂")
 
-ProductInfo.create!(:name => "鮪魚+雞肉+蔬菜", :vendor => "靖", :category_id => category1.id)
-ProductInfo.create!(:name => "鮪魚+雞肉+起司", :vendor => "靖", :category_id => category1.id)
+loc1 = Location.create!(:name => "Costco")
+loc2 = Location.create!(:name => "好狗命")
+loc3 = Location.create!(:name => "Yahoo 購物中心")
+loc4 = Location.create!(:name => "露天拍賣")
 
-ProductInfo.create!(:name => "皇家室內成貓", :vendor => "法國皇家", :category_id => category2.id)
-ProductInfo.create!(:name => "皇家幼母貓", :vendor => "法國皇家", :category_id => category2.id)
-ProductInfo.create!(:name => "皇家理想體態貓", :vendor => "法國皇家", :category_id => category2.id)
-ProductInfo.create!(:name => "皇家絕育貪嘴貓", :vendor => "法國皇家", :category_id => category2.id)
+cap = [
+  Capacity.create!(:amount => 2, :unit => "kg"),
+  Capacity.create!(:amount => 4, :unit => "kg"),
+  Capacity.create!(:amount => 10, :unit => "kg"),
+  Capacity.create!(:amount => 24, :unit => "can"),
+  Capacity.create!(:amount => 100, :unit => "g"),
+  Capacity.create!(:amount => 220, :unit => "g"),
+  Capacity.create!(:amount => 20, :unit => "lb"),
+  Capacity.create!(:amount => 42, :unit => "lb"),
+  Capacity.create!(:amount => 30, :unit => "lb"),
+  ]
 
-ProductInfo.create!(:name => "麥芽化毛膏 ", :vendor => "德國竣寶 GIMPET", :category_id => category3.id)
+p = ProductInfo.create!(:name => "鮪魚+雞肉+蔬菜", :vendor => "靖", :category_id => category1.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+ProductInfoLocationship.create!(:product_info => p, :location => loc3)
+ProductInfoLocationship.create!(:product_info => p, :location => loc4)
 
-ProductInfo.create!(:name => "銀鑽全效型貓砂", :vendor => "Scoop Away", :category_id => category4.id)
-ProductInfo.create!(:name => "Litter Purrfect檸檬香貓砂", :vendor => "Costco", :category_id => category4.id)
-ProductInfo.create!(:name => "藍鑽系列貓砂", :vendor => "EVER CLEAN", :category_id => category4.id)
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[3])
+p.save!
+
+p = ProductInfo.create!(:name => "鮪魚+雞肉+起司", :vendor => "靖", :category_id => category1.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+ProductInfoLocationship.create!(:product_info => p, :location => loc3)
+ProductInfoLocationship.create!(:product_info => p, :location => loc4)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[3])
+p.save!
+
+p = ProductInfo.create!(:name => "皇家室內成貓", :vendor => "法國皇家", :category_id => category2.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+ProductInfoLocationship.create!(:product_info => p, :location => loc4)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[0])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[1])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[2])
+p.save!
+
+p = ProductInfo.create!(:name => "皇家幼母貓", :vendor => "法國皇家", :category_id => category2.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+ProductInfoLocationship.create!(:product_info => p, :location => loc4)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[0])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[1])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[2])
+p.save!
+
+p = ProductInfo.create!(:name => "皇家理想體態貓", :vendor => "法國皇家", :category_id => category2.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[0])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[1])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[2])
+p.save!
+
+p = ProductInfo.create!(:name => "皇家絕育貪嘴貓", :vendor => "法國皇家", :category_id => category2.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[0])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[1])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[2])
+p.save!
+
+p = ProductInfo.create!(:name => "麥芽化毛膏 ", :vendor => "德國竣寶 GIMPET", :category_id => category3.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc2)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[4])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[5])
+p.save!
+
+p = ProductInfo.create!(:name => "銀鑽全效型貓砂", :vendor => "Scoop Away", :category_id => category4.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc1)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[6])
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[7])
+p.save!
+
+p = ProductInfo.create!(:name => "Litter Purrfect檸檬香貓砂", :vendor => "Costco", :category_id => category4.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc1)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[8])
+p.save!
+
+p = ProductInfo.create!(:name => "藍鑽系列貓砂", :vendor => "EVER CLEAN", :category_id => category4.id)
+ProductInfoLocationship.create!(:product_info => p, :location => loc3)
+ProductInfoLocationship.create!(:product_info => p, :location => loc4)
+
+ProductInfoCapacityship.create!(:product_info => p, :capacity => cap[7])
+p.save!

@@ -8,17 +8,14 @@
         <br>
 
         <%= f.label :price, "Price" %>
-        <%= f.select :price, [] %>
-        <%#= f.text_field :price %>
+        <%= select_tag :price_select, "" %>
+        <%= f.text_field :price %>
         <br>
-        <%= f.label :location, "Location" %>
-        <%= f.text_field :location %>
+        <%= f.label :location_id, "Location" %>
+        <%= f.select :location_id, [] %>
         <br>
-        <%= f.label :capacity, "Capaticy" %>
-        <%= f.text_field :capacity %>
-        <br>
-        <%= f.label :cap_unit, "Capaticy Unit" %>
-        <%= f.text_field :cap_unit %>
+        <%= f.label :capacity_id, "Capacity" %>
+        <%= f.select :capacity_id, [] %>
         <br>
         <%= f.submit "Create" %>
         <br>

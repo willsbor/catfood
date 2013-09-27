@@ -1,10 +1,32 @@
 
-$('#price_log_cap_unit').val('test');
-
 $('#price_log_info_content').css({ display: ''});
 
-$("#price_log_price option").remove();
-
+$("#price_select option").remove();
 <% @price_logs_for_product_info.each do |log| %>
-  $("#price_log_price").append($("<option></option>").attr("value", '<%= log.price %>').text('<%= log.price %>'));
+  $("#price_select").append($("<option></option>").attr("value", '<%= log.price %>').text('<%= log.price %>'));
 <% end %>
+$("#price_select").append($("<option></option>").attr("value", '0').text('其他'));
+
+$("#price_log_location_id option").remove();
+<% @locations_for_product_info.each do |location| %>
+  $("#price_log_location_id").append($("<option></option>").attr("value", '<%= location.id %>').text('<%= location.name %>'));
+<% end %>
+
+$("#price_log_capacity_id option").remove();
+<% @capacities_for_product_info.each do |capacity| %>
+  $("#price_log_capacity_id").append($("<option></option>").attr("value", '<%= capacity.id %>').text('<%= capacity.amount.to_s + " " + capacity.unit %>'));
+<% end %>
+
+$(document).ready(function() {
+    return $('#price_select').change(function() {
+      var item_value;
+      item_value = $('#price_select').val();
+
+      if (item_value == 0) {
+        $('#price_log_price').css({ display: ''});
+      } else {
+        $('#price_log_price').css({ display: 'none'});
+        $('#price_log_price').val(item_value);
+      }
+    });
+  });

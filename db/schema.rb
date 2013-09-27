@@ -11,9 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922115930) do
+ActiveRecord::Schema.define(version: 20130927070908) do
+
+  create_table "capacities", force: true do |t|
+    t.float    "amount"
+    t.string   "unit"
+    t.integer  "sub_capacity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -22,16 +36,29 @@ ActiveRecord::Schema.define(version: 20130922115930) do
   create_table "price_logs", force: true do |t|
     t.integer  "price"
     t.date     "log_date"
-    t.text     "location"
-    t.float    "capacity"
-    t.string   "cap_unit"
     t.integer  "product_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "location_id"
+    t.integer  "capacity_id"
   end
 
   add_index "price_logs", ["user_id"], name: "index_price_logs_on_user_id"
+
+  create_table "product_info_capacityships", force: true do |t|
+    t.integer  "product_info_id"
+    t.integer  "capacity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_info_locationships", force: true do |t|
+    t.integer  "product_info_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "product_infos", force: true do |t|
     t.string   "vendor"
