@@ -1,0 +1,27 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+# 
+#        success: (data) -> $('#content').html(data)
+
+selectProductBasePath = ""
+
+# $('.price_logs.new').ready ->
+#  alert "test"
+
+#  $('#price_log_product_info_id').bind 'change', -> 
+root = exports ? this
+root.price_log_product_info_change = ->
+  index = $('#price_log_product_info_id').val()
+  selectProductPath = selectProductBasePath + index + "/product_info_logs.js"
+
+  if index isnt ''
+    $.ajax selectProductPath,
+      type: 'GET'
+      dataType: 'script'
+  else 
+    $('#price_log_info_content').css({ display: 'none' })
+
+
+   
+

@@ -1,8 +1,12 @@
 
+<% content_for :title do %>
+adf
+<% end %>
+
 <%= form_for @price_log, :url => users_price_logs_path do |f| %>
-    <%= f.select :product_info_id, product_info_options, {:prompt => 'select Item'}%>
+    <%= f.select :product_info_id, product_info_options, {:prompt => 'select Item'}, {:onchange => 'price_log_product_info_change()'} %>
     <br>
-    <div id="price_log_info_content">
+    <div id="price_log_info_content" style="display:none">
         <%= f.label :log_date, "Log_Date" %>
         <%= f.date_select :log_date, {selected: Date.today} %>
         <br>
