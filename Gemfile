@@ -49,6 +49,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development do
+  gem 'better_errors'
+end
 
 # heroku 要的
 gem 'rails_12factor', group: :production

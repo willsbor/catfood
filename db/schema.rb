@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927070908) do
+ActiveRecord::Schema.define(version: 20130930034823) do
 
   create_table "capacities", force: true do |t|
     t.float    "amount"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20130927070908) do
     t.integer  "user_id"
     t.integer  "location_id"
     t.integer  "capacity_id"
+    t.integer  "amount"
+    t.integer  "total"
   end
 
   add_index "price_logs", ["user_id"], name: "index_price_logs_on_user_id"

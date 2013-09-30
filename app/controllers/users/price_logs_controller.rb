@@ -36,6 +36,6 @@ class Users::PriceLogsController < ApplicationController
 
 protected
   def price_logs_params
-    params.require(:price_log).permit(:price, :log_date, :capacity, :cap_unit, :product_info_id, :location_id)
+    params.require(:price_log).permit(:price, :log_date, :capacity_id, :product_info_id, :location_id)
   end
 end
