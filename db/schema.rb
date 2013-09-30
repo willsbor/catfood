@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930034823) do
+ActiveRecord::Schema.define(version: 20130930100038) do
 
   create_table "capacities", force: true do |t|
     t.float    "amount"
     t.string   "unit"
-    t.integer  "sub_capacity"
+    t.integer  "sub_capacity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
